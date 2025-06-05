@@ -12,9 +12,9 @@ import org.apache.flink.util.Collector;
 
 public class BatchWordCountTest {
     public static void main(String[] args) throws Exception{
-
+        //初始化环境
         ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
-
+        //读取文件
         DataSource<String> lineDS = env.readTextFile("input/words.txt");
 
         FlatMapOperator<String, Tuple2<String, Long>> wordAndOne = lineDS.flatMap(
