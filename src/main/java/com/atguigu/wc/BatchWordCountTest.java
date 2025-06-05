@@ -17,7 +17,6 @@ public class BatchWordCountTest {
 
         DataSource<String> lineDS = env.readTextFile("input/words.txt");
 
-
         FlatMapOperator<String, Tuple2<String, Long>> wordAndOne = lineDS.flatMap(
                 (String line, Collector<Tuple2<String, Long>> out) -> {
             String[] words = line.split(" ");
